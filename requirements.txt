@@ -1,0 +1,31 @@
+# Core Dependencies - ALL FREE!
+streamlit>=1.40.0
+
+
+# Data Processing
+numpy==1.26.3
+requests>=2.32.0
+
+# Geospatial & Mapping
+folium==0.15.1
+geopandas==0.14.2
+shapely==2.0.2
+geopy>=2.4.0  # NEW! For city name geocoding
+
+# Weather & Satellite APIs (FREE!)
+sentinelhub==3.9.1
+pyowm==3.3.0
+
+
+# Visualization
+matplotlib==3.8.2
+plotly==5.18.0
+
+# Image Processing
+pillow>=11.0.0
+
+# Utilities
+python-dotenv==1.0.1
+tqdm==4.67.1
+streamlit-folium==0.18.0
+scipy>=1.11.0
