@@ -67,7 +67,7 @@ st.markdown("""
 </style>
 """, unsafe_allow_html=True)
 
-st.markdown('<div class="main-header">🌊 Nyne</div>', unsafe_allow_html=True)
+st.markdown('<div class="main-header">Nyne</div>', unsafe_allow_html=True)
 st.markdown('<div class="sub-header">Flood Risk Prediction & Early Warning</div>', unsafe_allow_html=True)
 
 #initialise location in session state
