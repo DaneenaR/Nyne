@@ -1,9 +1,9 @@
-streamlit>=1.40.0
-folium>=0.15.0
+streamlit
+folium
 streamlit-folium
-geopy>=2.4.0
-numpy>=1.26.0
-plotly>=5.0.0
-pandas>=2.0.0
-requests>=2.32.0
-setuptools>=65.0.0
+geopy
+numpy
+plotly
+setuptools
+python-dotenv
+requests
