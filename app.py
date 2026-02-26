@@ -141,7 +141,7 @@ with st.sidebar:
                                    options=["Low", "Medium", "High"],
                                    value="Medium")
 
-    #Data sources
+    #data sources
     st.subheader("Data Sources")
     use_satellite = st.checkbox("Satellite imagery", value=True)
     use_weather = st.checkbox("Weather data", value=True)
@@ -469,6 +469,7 @@ else:
         st.write("• Real-time alerts")
 
     #demo locations
+    # demo locations
     st.markdown("---")
     st.subheader("Try These High-Risk Locations")
 
@@ -484,13 +485,16 @@ else:
     for idx, (city, coords) in enumerate(demo_locations.items()):
         with cols[idx]:
             if st.button(city, use_container_width=True, key=f"demo_{city}"):
+                if 'lat_input' in st.session_state:
+                    del st.session_state['lat_input']
+                if 'lon_input' in st.session_state:
+                    del st.session_state['lon_input']
+
                 st.session_state.selected_lat = coords[0]
                 st.session_state.selected_lon = coords[1]
 
                 st.session_state.results = None
 
-                st.success(f"{city} selected!")
-                st.info("Click 'Analyse Flood Risk' in the sidebar to see results!")
                 st.rerun()
 
 # Footer
