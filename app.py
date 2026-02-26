@@ -469,7 +469,7 @@ else:
         st.write("• Real-time alerts")
 
     #demo locations
-    # demo locations
+"""
     st.markdown("---")
     st.subheader("Try These High-Risk Locations")
 
@@ -496,7 +496,7 @@ else:
                 st.session_state.results = None
 
                 st.rerun()
-
+"""
 # Footer
 st.markdown("---")
 st.markdown("""
