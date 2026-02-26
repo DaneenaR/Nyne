@@ -468,35 +468,7 @@ else:
         st.write("• Historical patterns")
         st.write("• Real-time alerts")
 
-    #demo locations
-"""
-    st.markdown("---")
-    st.subheader("Try These High-Risk Locations")
 
-    demo_locations = {
-        "Houston, Texas": (29.7604, -95.3698),
-        "Bangladesh": (23.8103, 90.4125),
-        "Netherlands": (52.3676, 4.9041),
-        "Venice, Italy": (45.4408, 12.3155),
-        "New Orleans, Louisiana": (29.9511, -90.0715)
-    }
-
-    cols = st.columns(len(demo_locations))
-    for idx, (city, coords) in enumerate(demo_locations.items()):
-        with cols[idx]:
-            if st.button(city, use_container_width=True, key=f"demo_{city}"):
-                if 'lat_input' in st.session_state:
-                    del st.session_state['lat_input']
-                if 'lon_input' in st.session_state:
-                    del st.session_state['lon_input']
-
-                st.session_state.selected_lat = coords[0]
-                st.session_state.selected_lon = coords[1]
-
-                st.session_state.results = None
-
-                st.rerun()
-"""
 # Footer
 st.markdown("---")
 st.markdown("""
