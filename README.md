@@ -1,6 +1,6 @@
 ## Nyne Flood Detection System
 
-**Multi-modal AI system for real-time flood risk prediction and early warning**
+**Real-time flood risk prediction and early warning**
 ## Features
 
 ### **Satellite Analysis**
