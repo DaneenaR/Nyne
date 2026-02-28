@@ -90,43 +90,61 @@ with st.sidebar:
         st.session_state.selected_lat = latitude
         st.session_state.selected_lon = longitude
 
+
     elif location_method == "City Name":
+
         city_input = st.text_input("City name", placeholder="e.g., Kuala Lumpur, York, Milan")
-#geocode city
-        if city_input:
+        search_btn = st.button("Search", type="secondary")
+        if city_input and search_btn:
             try:
                 from geopy.geocoders import Nominatim
-
+                import time
                 with st.spinner(f"Finding {city_input}..."):
-                    geolocator = Nominatim(user_agent="flood_detection_app")
-                    location = geolocator.geocode(city_input, timeout=10)
+                    #better user agent with contact info
+                    geolocator = Nominatim(
+                        user_agent="nyne-dev@gmail.com",
+                        timeout=10
+                    )
 
+                    #delay for rate llimits
+                    time.sleep(1)
+                    location = geolocator.geocode(city_input)
                     if location:
                         latitude = location.latitude
                         longitude = location.longitude
                         location_name = location.address
-
                         st.session_state.selected_lat = latitude
                         st.session_state.selected_lon = longitude
-
                         st.success(f"Found: {location_name}")
                         st.info(f"Coordinates: {latitude:.4f}, {longitude:.4f}")
+
                     else:
-                        st.error(f"Could not find '{city_input}'. Try being more specific (e.g., 'Paris, Tokyo')")
+                        st.error(f"Could not find '{city_input}'. Try being more specific (e.g., 'Paris, France')")
                         latitude = st.session_state.selected_lat
                         longitude = st.session_state.selected_lon
                         location_name = "Unknown Location"
+
+
             except Exception as e:
-                st.error(f"Geocoding error: {str(e)}")
-                latitude = st.session_state.selected_lat
-                longitude = st.session_state.selected_lon
-                location_name = "Unknown Location"
+                error_msg = str(e)
+                if "429" in error_msg:
+                    st.error("Too many requests. Please wait 60 seconds before searching again.")
+
+                else:
+
+                    st.error(f"Geocoding error: {error_msg}")
+                    latitude = st.session_state.selected_lat
+                    longitude = st.session_state.selected_lon
+                    location_name = "Unknown Location"
+
         else:
-            #else no city entered yet, use last known location
+
+            #search has not existed yet, use last known location
             latitude = st.session_state.selected_lat
             longitude = st.session_state.selected_lon
-            location_name = "Enter a city name above"
-            st.info("Type a city name to search")
+            location_name = "Enter a city name and click Search"
+            if not search_btn:
+                st.info("Type a city name and click 'Search'")
     #map
     else:
         latitude = st.session_state.selected_lat
