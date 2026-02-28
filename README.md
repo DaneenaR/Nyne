@@ -3,36 +3,6 @@
 **Real-time flood risk prediction and early warning**
 ## Features
 
-### **Satellite Analysis**
-- Real-time satellite imagery from Sentinel Hub
-- Water body detection using NDWI (Normalized Difference Water Index)
-- Land cover change detection
-- Cloud coverage assessment
-
-### **Weather Integration**
-- Live weather forecasts (7-day)
-- Rainfall predictions and tracking
-- Temperature and humidity monitoring
-- Storm alert integration
-
-### **Terrain Analysis**
-- Elevation profile mapping
-- Slope calculation for runoff assessment
-- Low-lying area identification
-- Coastal flood risk evaluation
-
-### **AI Prediction Model**
-- Multi-modal deep learning
-- Real-time risk scoring (0-100%)
-- Timeline forecasting
-- Confidence intervals
-
-### **Interactive Dashboard**
-- Real-time risk maps
-- Risk factor breakdown
-- Historical trends
-- Actionable recommendations
-
 ### Prerequisites
 - Python 3.8+
 - Git
@@ -41,7 +11,7 @@
 
 ```bash
 # Clone repository
-git clone https://github.com/YOUR_USERNAME/flood-detection.git
+git clone https://github.com/DaneenaR/flood-detection.git
 cd flood-detection
 
 # Create virtual environment
@@ -66,9 +36,9 @@ pip install -r requirements.txt
 - Free tier: 1000 calls/day
 - Copy API key to `.env`
 
-**3. Open-Elevation (No key needed!)**
-- Unlimited free usage
-- No sign-up required
+**3. Open-Elevation**
+-Unlimited free usage
+-No sign-up required
 
 ### Run the App
 
@@ -83,12 +53,7 @@ Open http://localhost:8501 in your browser
 
 ### 1. **Data Collection**
 ```
-User Input (Location)
-    ↓
-┌──────────────┬──────────────┬──────────────┐
-│   Satellite  │   Weather    │  Elevation   │
-│   Imagery    │   Forecast   │     Data     │
-└──────────────┴──────────────┴──────────────┘
+User Input (Location): Satellite Imagery, weather forecast, & elevation data
 ```
 
 ### 2. **Feature Extraction**
@@ -110,32 +75,6 @@ Risk Score = (
 - **HIGH (70-100%):** Immediate action required
 - **MEDIUM (40-69%):** Elevated risk, prepare
 - **LOW (0-39%):** Normal monitoring
-
-## Project Structure
-```
-flood-detection/
-├── app.py                          # Main Streamlit dashboard
-├── requirements.txt                # Dependencies
-├── .env.example                    # Environment template
-├── README.md                       # This file
-├── utils/
-│   ├── __init__.py
-│   ├── satellite_data.py          # Sentinel Hub integration
-│   ├── weather_data.py            # Weather API integration
-│   ├── elevation_data.py          # Elevation analysis
-│   └── ml_model.py                # Prediction model
-├── models/
-│   └── flood_model.h5             # Pre-trained model (optional)
-├── data/
-│   ├── satellite/                 # Cached satellite images
-│   ├── weather/                   # Weather data cache
-│   └── processed/                 # Processed datasets
-├── notebooks/
-│   └── model_training.ipynb       # Model development
-└── static/
-    ├── images/                    # Dashboard images
-    └── maps/                      # Generated maps
-```
 
 **Dataset Sources:**
 - [Global Flood Database](https://global-flood-database.cloudtostreet.ai/)
